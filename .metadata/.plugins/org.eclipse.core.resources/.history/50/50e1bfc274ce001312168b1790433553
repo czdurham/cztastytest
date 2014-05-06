@@ -1,0 +1,27 @@
+package com.czdurham.tasty.config;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.czdurham.tasty.core.domain.tasting.TastingDetails;
+import com.czdurham.tasty.core.events.tasting.TastingCreateRequest;
+import com.czdurham.tasty.core.services.TastingService;
+import com.czdurham.tasty.rest.domain.tasting.TastingDomainFixtures;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {CoreConfig.class})
+public class CoreDomainIntegrationTest {
+	@Autowired
+	TastingService tastingService;
+	
+	@Test
+	public void addNewTastingToTheSystem() {
+		TastingCreateRequest request = new TastingCreateRequest(new TastingDetails());
+		tastingService.requestTastingCreate(request);
+		
+		tastingService.r
+	}
+}

@@ -1,0 +1,102 @@
+package com.czdurham.tasty.rest.controllers;
+
+import java.util.Arrays;
+
+import junit.framework.TestCase;
+
+import org.junit.Test;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.codec.Base64;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestTemplate;
+
+import com.czdurham.tasty.rest.domain.tasting.Tasting;
+import com.czdurham.tasty.rest.domain.tasting.TastingDomainFixtures;
+
+public class TastingTests {
+	@Test
+	public void thatTastingsCanBeAddedAndQueried() {
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_JSON);
+//		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpHeaders headers = getHeaders("drinker" + ":" + "gulp");
+
+		HttpEntity<String> requestEntity = new HttpEntity<String>(
+				TastingDomainFixtures.simpleTastingJSON(), headers);
+
+		RestTemplate template = new RestTemplate();
+
+		ResponseEntity<Tasting> entity = template.postForEntity(
+				"http://localhost:8080/tastings",
+				requestEntity, Tasting.class);
+
+		String path = entity.getHeaders().getLocation().getPath();
+
+		TestCase.assertEquals(HttpStatus.CREATED, entity.getStatusCode());
+		TestCase.assertTrue(path.startsWith("/tastings/"));
+		Tasting tasting = entity.getBody();
+
+		System.out.println ("The Tasting ID is " + tasting.getKey());
+		System.out.println ("The Location is " + entity.getHeaders().getLocation());
+
+		TestCase.assertEquals(2, tasting.getTasters().size());
+	}
+
+	@Test
+	public void thatTastingsCannotBeQueriedWithBadUser() {
+		HttpHeaders headers = getHeaders("drinker" + ":" + "NOTTHEPASSWORD");
+
+		HttpEntity<String> requestEntity = new HttpEntity<String>(
+				TastingDomainFixtures.simpleTastingJSON(), headers);
+
+		RestTemplate template = new RestTemplate();
+
+		try {
+			ResponseEntity<Tasting> entity = template.postForEntity(
+					"http://localhost:8080/tastings",
+					requestEntity, Tasting.class);
+
+			TestCase.fail("Request passed incorrectly with status " + entity.getStatusCode());
+		} catch(HttpClientErrorException ex) {
+			TestCase.assertEquals(HttpStatus.UNAUTHORIZED, ex.getStatusCode());
+		}
+	}
+	
+	@Test
+	public void thatTastingsHaveCorrectHateoasLinks() {
+		ResponseEntity<Tasting> entity = createTasting();
+		Tasting tasting = entity.getBody();
+		String tastingBase = "/tastings/" + tasting.getKey();
+		
+		TestCase.assertEquals(entity.getHeaders().getLocation().toString(), tasting.getLink("self").getHref());
+		TestCase.assertTrue(tasting.getLink("Tasting Status").getHref().endsWith(tastingBase + "/status"));
+	}
+
+	private ResponseEntity<Tasting> createTasting() {
+		HttpHeaders headers = getHeaders("drinker" + ":" + "gulp");
+		HttpEntity<String> requestEntity = new HttpEntity<String>(
+				TastingDomainFixtures.simpleTastingJSON(), headers);
+
+		RestTemplate template = new RestTemplate();
+		ResponseEntity<Tasting> entity = template.postForEntity(
+				"http://localhost:8080/tastings",
+				requestEntity, Tasting.class);
+
+		return entity;
+	}
+
+	static HttpHeaders getHeaders(String auth) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+		byte[] encodedAuthorisation = Base64.encode(auth.getBytes());
+		headers.add("Authorization", "Basic " + new String(encodedAuthorisation));
+
+		return headers;
+	}
+}

@@ -1,0 +1,15 @@
+package com.czdurham.tasty.domain.tasting;
+
+import java.util.UUID;
+
+public class TastingDetails {
+	private UUID key;
+	
+	public TastingDetails(UUID key) {
+		this.key = key;
+	}
+	
+	public UUID getKey() {
+		return key;
+	}
+}

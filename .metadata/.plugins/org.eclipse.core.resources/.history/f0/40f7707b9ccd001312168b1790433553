@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+    	mavenCentral()
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        maven { url "http://download.java.net/maven/2" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'gs-rest-hateoas'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+    maven { url 'http://repo.spring.io/milestone/'}
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("org.springframework.hateoas:spring-hateoas")
+
+    compile("org.springframework.security:spring-security-web")
+    compile("org.springframework.security:spring-security-core")
+    compile("org.springframework.security:spring-security-config")
+    
+    compile("com.jayway.jsonpath:json-path")
+
+	testCompile("com.jayway.jsonpath:json-path-assert")
+	testCompile("org.springframework:spring-test")
+    testCompile("junit:junit")
+    testCompile("org.mockito:mockito-all:1.9.5")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}

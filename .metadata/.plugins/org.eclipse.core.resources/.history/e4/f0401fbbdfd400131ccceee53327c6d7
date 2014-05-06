@@ -1,0 +1,33 @@
+package com.czdurham.tasty.core.events.taster;
+
+import java.util.UUID;
+
+import com.czdurham.tasty.core.domain.tasting.TasterDetails;
+import com.czdurham.tasty.core.events.ReadEvent;
+
+public class TasterDetailsEvent extends ReadEvent {
+	private final UUID key;
+	private TasterDetails tastingDetails;
+
+	protected TasterDetailsEvent(UUID key) {
+		this.key = key;
+		setFound(false);
+	}
+
+	public TasterDetailsEvent(UUID key, TasterDetails tastingDetails) {
+		this.key = key;
+		this.tastingDetails = tastingDetails;
+	}
+
+	public UUID getKey() {
+		return key;
+	}
+
+	public TasterDetails getTastingDetails() {
+		return tastingDetails;
+	}
+
+	public static TasterDetailsEvent notFound(UUID key) {
+		return new TasterDetailsEvent(key);
+	}
+}

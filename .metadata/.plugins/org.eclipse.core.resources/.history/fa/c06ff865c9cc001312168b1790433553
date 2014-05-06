@@ -1,0 +1,7 @@
+package com.czdurham.tasty.events.tasting;
+
+import ReadEvent;
+
+public class TastingStatusEvent extends ReadEvent {
+
+}

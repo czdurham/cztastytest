@@ -1,0 +1,7 @@
+package com.czdurham.tasty.events.tasting;
+
+import com.czdurham.tasty.events.ReadRequest;
+
+public class TastingDetailsRequest extends ReadRequest {
+
+}

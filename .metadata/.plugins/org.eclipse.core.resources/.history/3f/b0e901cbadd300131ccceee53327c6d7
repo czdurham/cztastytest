@@ -1,0 +1,44 @@
+package com.czdurham.tasty.rest.controllers;
+
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.czdurham.tasty.core.domain.taster.Taster;
+import com.czdurham.tasty.rest.domain.tasting.Tasting;
+
+@Controller
+@RequestMapping(value="/tastings/{tastingId}")
+public class TastingTasterCommandsController {
+	private static final Class<TastingCommandsController> THIS_CLASS = TastingCommandsController.class;
+	private static final Logger LOG = LoggerFactory.getLogger(THIS_CLASS);
+
+	@RequestMapping(method = RequestMethod.POST, value = "/{id}")
+	public ResponseEntity<Tasting> addTastingTaster(
+			@PathVariable UUID id,
+			@RequestBody Taster taster,
+			UriComponentsBuilder builder) {
+		LOG.debug("Entered addTastingTaster");
+		TasterDetails tasterDetails = taster.toDetails();
+		TasterDetailsCreateRequest request = new TasterDetailsCreateRequest(id, tasterDetails);
+		TasterDetailsCreatedEvent event = tastingService.requestTastingCreate(request);
+
+		TasterDetails newTasterDetails = event.getTasterDetails();
+		Taster newTaster = Taster.fromDetails(newTasterDetails);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(builder.path("/tastings/{id}/{tid}").buildAndExpand(id, newTasterDetails.getKey()).toUri());
+
+		return new ResponseEntity<Taster>(newTaster, headers, HttpStatus.CREATED);
+	}
+}

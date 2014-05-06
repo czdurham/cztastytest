@@ -1,0 +1,16 @@
+package com.czdurham.tasty.events.tasting;
+
+import com.czdurham.tasty.domain.tasting.TastingDetails;
+import com.czdurham.tasty.events.CreateRequest;
+
+public class TastingCreateRequest extends CreateRequest {
+	private final TastingDetails tastingDetails;
+
+	public TastingCreateRequest(TastingDetails tastingDetails) {
+		this.tastingDetails = tastingDetails;
+	}
+
+	public TastingDetails getTastingDetails() {
+		return tastingDetails;
+	}
+}

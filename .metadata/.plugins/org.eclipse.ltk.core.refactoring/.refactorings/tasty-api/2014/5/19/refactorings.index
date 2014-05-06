@@ -1,0 +1,28 @@
+1399227466688	Move compilation unit
+1399227516445	Copy compilation units
+1399227531099	Rename type 'TastingDeletedEvent'
+1399227543001	Rename field 'tastingDetails'
+1399228183697	Rename type 'StatusDetails'
+1399228200740	Rename method 'getStatus'
+1399228216541	Rename method 'getEnum'
+1399228224061	Rename field 'status'
+1399228230090	Rename field 'wnumValue'
+1399340835806	Rename type 'TastingTasterCreateEvent'
+1399340924702	Rename type 'TastingTasterCreateRequest'
+1399340959615	Rename type 'TastiTasterCreateRequest'
+1399354262858	Rename type 'TastingDeleteRequest'
+1399354288570	Rename type 'TastingDetailsEvent'
+1399354300022	Rename type 'TastingDetails'
+1399354313349	Rename field 'tastingDetails'
+1399354327135	Rename local variable 'tastingDetails'
+1399354334261	Rename method 'getTastingDetails'
+1399354375691	Rename type 'TasterDetails'
+1399354495197	Rename type 'TastingDetailsRequest'
+1399354512514	Rename type 'TastingsDetailsEvent'
+1399354533484	Rename field 'tastingDetails'
+1399354573164	Rename type 'TastingsDetailsRequest'
+1399354586247	Rename type 'TastingStatusEvent'
+1399354620200	Delete element
+1399354626813	Delete element
+1399399563773	Rename type variable 'ObjectType'
+1399400064013	Rename type 'BaseEntity'

@@ -1,0 +1,21 @@
+package com.czdurham.tasty.core.domain;
+
+import java.util.Date;
+
+public class TimestampedEnum<E extends Enum<?>> {
+	private Date date;
+	private E status;
+	
+	public TimestampedEnum(Date date, E status) {
+		this.date = date;
+		this.status = status;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public E getStatus() {
+		return status;
+	}
+}

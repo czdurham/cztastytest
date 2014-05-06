@@ -1,0 +1,19 @@
+package com.czdurham.tasty.core.events.taster;
+
+import java.util.List;
+
+import com.czdurham.tasty.core.domain.tasting.TasterDetails;
+import com.czdurham.tasty.core.events.PaginatedReadEvent;
+
+public class TastingsDetailsEvent extends PaginatedReadEvent {
+	private final List<TasterDetails> tastingDetails;
+
+	public TastingsDetailsEvent(int page, int size, int total, List<TasterDetails> tastingDetails) {
+		super(page, size, total);
+		this.tastingDetails = tastingDetails;
+	}
+
+	public List<TasterDetails> getTastingDetails() {
+		return tastingDetails;
+	}
+}

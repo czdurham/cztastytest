@@ -1,0 +1,27 @@
+package com.czdurham.tasty.events.tasting;
+
+import java.util.UUID;
+
+import com.czdurham.tasty.domain.tasting.TastingStatusDetails;
+import com.czdurham.tasty.events.StatusEvent;
+
+public class TastingStatusEvent extends StatusEvent<TastingStatusDetails> {
+	private UUID key;
+	
+	protected TastingStatusEvent(UUID key) {
+		this.key = key;
+	}
+	
+	public TastingStatusEvent(UUID key, TastingStatusDetails status) {
+		super(status);
+		this.key = key;
+	}
+	
+	public static TastingStatusEvent notFound(UUID key) {
+		return new TastingStatusEvent(key);
+	}
+	
+	public UUID getKey() {
+		return key;
+	}
+}

@@ -1,0 +1,21 @@
+package com.czdurham.tasty.domain;
+
+import java.util.Date;
+
+public class StatusDetails<E extends Enum<?>> {
+	private Date date;
+	private E status;
+	
+	public StatusDetails(Date date, E status) {
+		this.date = date;
+		this.status = status;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public E getStatus() {
+		return status;
+	}
+}

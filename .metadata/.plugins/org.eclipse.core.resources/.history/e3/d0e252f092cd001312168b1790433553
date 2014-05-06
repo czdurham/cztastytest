@@ -1,0 +1,7 @@
+package com.czdurham.tasty.events.tasting;
+
+import com.czdurham.tasty.events.CreateRequest;
+
+public class TastingCreateRequest extends CreateRequest {
+
+}

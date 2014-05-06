@@ -1,0 +1,5 @@
+package com.czdurham.tasty.events.flight;
+
+public class RequestFlightDetailsEvent {
+
+}

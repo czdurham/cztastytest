@@ -1,0 +1,12 @@
+package com.czdurham.tasty.rest.domain.taster;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.hateoas.ResourceSupport;
+
+@XmlRootElement
+public class Taster extends ResourceSupport implements Serializable {
+
+}

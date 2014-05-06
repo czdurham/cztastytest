@@ -1,0 +1,66 @@
+package com.czdurham.tasty.controllers;
+
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.czdurham.tasty.domain.tasting.Tasting;
+import com.czdurham.tasty.domain.tasting.TastingDetails;
+import com.czdurham.tasty.events.tasting.TastingCreateRequest;
+import com.czdurham.tasty.events.tasting.TastingCreatedEvent;
+import com.czdurham.tasty.events.tasting.TastingDeleteRequest;
+import com.czdurham.tasty.events.tasting.TastingDeletedEvent;
+import com.czdurham.tasty.services.TastingService;
+
+@Controller
+@RequestMapping(value="/tastings", produces="application/json")
+public class TastingCommandsController {
+	private static final Class<TastingCommandsController> THIS_CLASS = TastingCommandsController.class;
+	private static final Logger LOG = LoggerFactory.getLogger(THIS_CLASS);
+
+	@Autowired
+	private TastingService tastingService;
+
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<TastingDetails> createTasting(
+			@RequestBody Tasting tasting,
+			UriComponentsBuilder builder) {
+		LOG.debug("Entered createTasting");
+		TastingDetails tastingDetails = tasting.toTastingDetails();
+		TastingCreateRequest request = new TastingCreateRequest(tastingDetails);
+		TastingCreatedEvent event = tastingService.requestTastingCreate(request);
+
+		TastingDetails newTastingDetails = event.getTastingDetails();
+
+		return new ResponseEntity<TastingDetails>(newTastingDetails, HttpStatus.CREATED);
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+	public ResponseEntity<TastingDetails> deleteTasting(@PathVariable UUID id) {
+		LOG.debug("Entered deleteTasting");
+		TastingDeleteRequest request = new TastingDeleteRequest(id);
+		TastingDeletedEvent event = tastingService.requestTastingDelete(request);
+
+		if (!event.isFound()) {
+			return new ResponseEntity<TastingDetails>(HttpStatus.NOT_FOUND);
+		}
+
+		TastingDetails tastingDetails = event.getTastingDetails();
+
+		if (!event.isDeleted()) {
+			return new ResponseEntity<TastingDetails>(HttpStatus.FORBIDDEN);
+		}
+
+		return new ResponseEntity<TastingDetails>(tastingDetails, HttpStatus.OK);
+	}
+}

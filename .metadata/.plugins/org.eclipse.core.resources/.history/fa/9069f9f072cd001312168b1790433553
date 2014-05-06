@@ -1,0 +1,16 @@
+package com.czdurham.tasty.controllers;
+
+import org.mockito.InjectMocks;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.czdurham.tasty.services.TastingService;
+
+public class ViewTastingIntegrationTest {
+	MockMvc mockMvc;
+
+	@InjectMocks
+	TastingQueriesController controller;
+
+	@Mock
+	TastingService service;
+}

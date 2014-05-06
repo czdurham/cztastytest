@@ -1,0 +1,3 @@
+package com.czdurham.tasty.events;
+
+public class UpdatedEvent extends ExistingEvent {}

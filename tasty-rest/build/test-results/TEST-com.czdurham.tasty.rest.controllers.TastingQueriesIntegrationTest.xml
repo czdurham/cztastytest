@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.czdurham.tasty.rest.controllers.TastingQueriesIntegrationTest" tests="4" failures="0" errors="0" timestamp="2014-04-28T05:51:44" hostname="OEC00681.local" time="0.158">
+  <properties/>
+  <testcase name="thatViewOrderUsesHttpNotFound" classname="com.czdurham.tasty.rest.controllers.TastingQueriesIntegrationTest" time="0.018"/>
+  <testcase name="thatViewTastingRendersJsonCorrectly" classname="com.czdurham.tasty.rest.controllers.TastingQueriesIntegrationTest" time="0.024"/>
+  <testcase name="thatViewTastingRendersXmlCorrectly" classname="com.czdurham.tasty.rest.controllers.TastingQueriesIntegrationTest" time="0.092"/>
+  <testcase name="thatViewOrderUsesHttpOK" classname="com.czdurham.tasty.rest.controllers.TastingQueriesIntegrationTest" time="0.021"/>
+  <system-out><![CDATA[22:51:44.841 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.841 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.841 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+22:51:44.842 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.hateoas.ResourceSupport com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTastings(int,int)
+22:51:44.842 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+22:51:44.848 [Test worker] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for controller advice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@48e266df
+22:51:44.852 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:51:44.853 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:51:44.853 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:51:44.853 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [jndiProperties] PropertySource with lowest search precedence
+22:51:44.853 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.853 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.853 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+22:51:44.853 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:51:44.853 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@65537333]
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@49b04d3d]
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@559f0596]
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@3b27e6c4]
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:51:44.853 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+22:51:44.853 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:51:44.854 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/tastings/bac264c7-d3d9-4bcc-9f3a-0dbfb44b0d41]
+22:51:44.854 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /tastings/bac264c7-d3d9-4bcc-9f3a-0dbfb44b0d41
+22:51:44.854 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)]
+22:51:44.854 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/tastings/bac264c7-d3d9-4bcc-9f3a-0dbfb44b0d41] is: -1
+22:51:44.856 [Test worker] DEBUG c.c.t.r.c.TastingQueriesController - Entered viewTasting
+22:51:44.856 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:51:44.856 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /tastings/bac264c7-d3d9-4bcc-9f3a-0dbfb44b0d41
+          Parameters = {}
+             Headers = {Accept=[application/json]}
+
+             Handler:
+                Type = com.czdurham.tasty.rest.controllers.TastingQueriesController
+              Method = public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 404
+       Error message = null
+             Headers = {}
+        Content type = null
+                Body = 
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+22:51:44.860 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.860 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.860 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+22:51:44.861 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.hateoas.ResourceSupport com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTastings(int,int)
+22:51:44.861 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+22:51:44.867 [Test worker] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for controller advice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2847ddc4
+22:51:44.870 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:51:44.871 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:51:44.871 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:51:44.871 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [jndiProperties] PropertySource with lowest search precedence
+22:51:44.871 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.871 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.871 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+22:51:44.871 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:51:44.871 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:51:44.871 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:51:44.871 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@30eed69a]
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@104b318f]
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@38a2aba4]
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@3fb2b908]
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:51:44.872 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/tastings/8bb2d42b-3094-48cb-b276-f855cdcab36e]
+22:51:44.872 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /tastings/8bb2d42b-3094-48cb-b276-f855cdcab36e
+22:51:44.873 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)]
+22:51:44.873 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/tastings/8bb2d42b-3094-48cb-b276-f855cdcab36e] is: -1
+22:51:44.874 [Test worker] DEBUG c.c.t.r.c.TastingQueriesController - Entered viewTasting
+22:51:44.879 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [links: [<http://localhost/tastings/8bb2d42b-3094-48cb-b276-f855cdcab36e>;rel="self"]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@13ddcfef]
+22:51:44.880 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:51:44.880 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /tastings/8bb2d42b-3094-48cb-b276-f855cdcab36e
+          Parameters = {}
+             Headers = {Accept=[application/json]}
+
+             Handler:
+                Type = com.czdurham.tasty.rest.controllers.TastingQueriesController
+              Method = public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=UTF-8]}
+        Content type = application/json;charset=UTF-8
+                Body = {"key":"8bb2d42b-3094-48cb-b276-f855cdcab36e","name":"Rock Brewery","tasters":[],"links":[{"rel":"self","href":"http://localhost/tastings/8bb2d42b-3094-48cb-b276-f855cdcab36e"}]}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+22:51:44.885 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.885 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.885 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+22:51:44.886 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.hateoas.ResourceSupport com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTastings(int,int)
+22:51:44.886 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+22:51:44.892 [Test worker] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for controller advice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@1b969687
+22:51:44.895 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:51:44.896 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:51:44.896 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:51:44.896 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [jndiProperties] PropertySource with lowest search precedence
+22:51:44.896 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.896 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.896 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+22:51:44.896 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:51:44.896 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:51:44.896 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:51:44.896 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@2ceec589]
+22:51:44.896 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@6feabc6a]
+22:51:44.896 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1bf80c8d]
+22:51:44.897 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@3a000b53]
+22:51:44.897 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:51:44.897 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+22:51:44.897 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:51:44.897 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/tastings/5f33b204-d436-4191-9e7f-077a8e31c534]
+22:51:44.897 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /tastings/5f33b204-d436-4191-9e7f-077a8e31c534
+22:51:44.897 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)]
+22:51:44.898 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/tastings/5f33b204-d436-4191-9e7f-077a8e31c534] is: -1
+22:51:44.899 [Test worker] DEBUG c.c.t.r.c.TastingQueriesController - Entered viewTasting
+22:51:44.937 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [links: [<http://localhost/tastings/5f33b204-d436-4191-9e7f-077a8e31c534>;rel="self"]] as "text/xml" using [org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter@27d5dfac]
+22:51:44.937 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:51:44.937 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /tastings/5f33b204-d436-4191-9e7f-077a8e31c534
+          Parameters = {}
+             Headers = {Accept=[text/xml]}
+
+             Handler:
+                Type = com.czdurham.tasty.rest.controllers.TastingQueriesController
+              Method = public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[text/xml]}
+        Content type = text/xml
+                Body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?><tasting xmlns:atom="http://www.w3.org/2005/Atom"><atom:link rel="self" href="http://localhost/tastings/5f33b204-d436-4191-9e7f-077a8e31c534"/><key>5f33b204-d436-4191-9e7f-077a8e31c534</key><name>Green Beer Company</name></tasting>
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+22:51:44.978 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.978 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.978 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+22:51:44.979 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.hateoas.ResourceSupport com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTastings(int,int)
+22:51:44.979 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/tastings/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)
+22:51:44.985 [Test worker] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for controller advice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@56d3bf29
+22:51:44.989 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:51:44.989 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:51:44.989 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:51:44.990 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [jndiProperties] PropertySource with lowest search precedence
+22:51:44.990 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:51:44.990 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:51:44.990 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+22:51:44.990 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:51:44.990 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@e69c937]
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@43194145]
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2f0c3b6d]
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@4c11893c]
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:51:44.990 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+22:51:44.990 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:51:44.991 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/tastings/da070be7-b61b-4d4c-9ddd-ef32c0ff9232]
+22:51:44.991 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /tastings/da070be7-b61b-4d4c-9ddd-ef32c0ff9232
+22:51:44.991 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<com.czdurham.tasty.rest.domain.tasting.Tasting> com.czdurham.tasty.rest.controllers.TastingQueriesController.viewTasting(java.util.UUID)]
+22:51:44.991 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/tastings/da070be7-b61b-4d4c-9ddd-ef32c0ff9232] is: -1
+22:51:44.993 [Test worker] DEBUG c.c.t.r.c.TastingQueriesController - Entered viewTasting
+22:51:44.998 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [links: [<http://localhost/tastings/da070be7-b61b-4d4c-9ddd-ef32c0ff9232>;rel="self"]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@17c34afc]
+22:51:44.998 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:51:44.998 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

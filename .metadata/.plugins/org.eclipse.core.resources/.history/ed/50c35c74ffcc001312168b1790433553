@@ -1,0 +1,14 @@
+package com.czdurham.tasty.domain.tasting;
+
+import java.util.Date;
+import java.util.UUID;
+
+public class TastingDomainFixtures {
+	public static TastingStatusDetails createTastingStatusDetails(TastingStatus status) {
+		return new TastingStatusDetails(new Date(), status);
+	}
+	public static TastingDetails createTastingDetails(UUID key) {
+		return null;
+//		return new TastingDetails(new Date(), status);
+	}
+}

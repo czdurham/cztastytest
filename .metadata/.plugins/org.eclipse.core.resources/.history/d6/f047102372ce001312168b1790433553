@@ -1,0 +1,7 @@
+package com.czdurham.tasty.util;
+
+public class CzUtils {
+	public static boolean isPositive(Integer n) {
+		return null != n && 0 < n;
+	}
+}

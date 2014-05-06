@@ -1,0 +1,19 @@
+package com.czdurham.tasty.events;
+
+import java.util.UUID;
+
+import com.czdurham.tasty.domain.StatusDetails;
+import com.czdurham.tasty.domain.tasting.TastingStatusDetails;
+import com.czdurham.tasty.events.tasting.TastingStatusEvent;
+
+public class StatusEvent<SD extends StatusDetails> extends ReadEvent {
+	private SD status;
+	
+	protected StatusEvent() {
+		setFound(false);
+	}
+	
+	public StatusEvent(SD status) {
+		this.status = status;
+	}
+}

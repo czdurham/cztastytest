@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;TastingRepository.java&apos; to &apos;tasty-api/src/main/java/com.czdurham.tasty.core.repository&apos;&#x0A;- Original project: &apos;tasty-core&apos;&#x0A;- Destination element: &apos;tasty-api/src/main/java/com.czdurham.tasty.core.repository&apos;&#x0A;- Original element: &apos;com.czdurham.tasty.core.repository.TastingRepository.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=tasty-api/src\/main\/java&lt;com.czdurham.tasty.core.repository" element1="/src\/main\/java&lt;com.czdurham.tasty.core.repository{TastingRepository.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1398649586157" units="1" version="1.0"/>
+</session>

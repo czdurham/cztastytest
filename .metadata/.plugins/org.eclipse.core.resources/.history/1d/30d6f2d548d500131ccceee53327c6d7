@@ -1,0 +1,33 @@
+package com.czdurham.tasty.core.repository;
+
+import java.util.List;
+
+import com.czdurham.tasty.core.domain.taster.Taster;
+
+public class AbstractGenericMemoryRepositoryy<KeyType, ObjectType> implements
+		GenericRepository<KeyType, ObjectType> {
+	@Override
+	public Taster save(ObjectType taster) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(ObjectType key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Taster findById(KeyType key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ObjectType> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

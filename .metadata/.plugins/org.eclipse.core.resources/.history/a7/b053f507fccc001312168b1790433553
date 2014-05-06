@@ -1,0 +1,33 @@
+package com.czdurham.tasty.events.tasting;
+
+import java.util.UUID;
+
+import com.czdurham.tasty.domain.tasting.TastingDetails;
+import com.czdurham.tasty.events.DeletedEvent;
+
+public class TastingDeletedEvent extends DeletedEvent {
+	private final UUID key;
+	private TastingDetails tastingDetails;
+
+	protected TastingDeletedEvent(UUID key) {
+		this.key = key;
+		setFound(false);
+	}
+
+	public TastingDeletedEvent(UUID key, TastingDetails tastingDetails) {
+		this.key = key;
+		this.tastingDetails = tastingDetails;
+	}
+
+	public UUID getKey() {
+		return key;
+	}
+
+	public TastingDetails getTastingDetails() {
+		return tastingDetails;
+	}
+
+	public static TastingDeletedEvent notFound(UUID key) {
+		return new TastingDeletedEvent(key);
+	}
+}

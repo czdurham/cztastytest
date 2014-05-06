@@ -1,0 +1,55 @@
+package com.czdurham.tasty.domain.tasting;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.beans.BeanUtils;
+
+public class Tasting {
+	private final UUID key;
+	private String name;
+	private List<String> tasters;
+	private final List<TastingStatusDetails> statusHistory;
+
+	public Tasting() {
+		key = UUID.randomUUID();
+		statusHistory = new ArrayList<>();
+		statusHistory.add(new TastingStatusDetails(new Date(), TastingStatus.CREATED));
+	}
+
+	public UUID getKey() {
+		return key;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<String> getTasters() {
+		return tasters;
+	}
+
+	public void setTasters(List<String> tasters) {
+		if(null == tasters) {
+			this.tasters = Collections.emptyList();
+		} else {
+			this.tasters = Collections.unmodifiableList(tasters);
+		}
+	}
+
+	public TastingDetails toTastingDetails() {
+		TastingDetails tastingDetails = new TastingDetails(getKey());
+	    BeanUtils.copyProperties(this, tastingDetails);
+	    return tastingDetails;
+	}
+}

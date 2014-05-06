@@ -1,0 +1,15 @@
+package com.czdurham.tasty.core.domain.taster;
+
+import java.util.UUID;
+
+public class Taster {
+	private final UUID key;
+
+	public Taster() {
+		key = UUID.randomUUID();
+	}
+
+	public UUID getKey() {
+		return key;
+	}
+}

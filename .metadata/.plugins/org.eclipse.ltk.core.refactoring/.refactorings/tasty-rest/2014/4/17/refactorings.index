@@ -1,0 +1,40 @@
+1398450064528	Delete elements
+1398450207237	Move file
+1398450219417	Delete element
+1398450464538	Delete element
+1398450477107	Delete element
+1398457910971	Rename type 'TastyConstants'
+1398459256680	Rename type 'FlightController'
+1398459394001	Rename type 'RequestFlightsEvent'
+1398459402000	Rename type 'RequestFlightDetailsEvent'
+1398460052262	Copy compilation units
+1398460158986	Copy compilation units
+1398460170801	Rename type 'QueryFlightDetailsEvent'
+1398460177878	Rename type 'QueryFlightsEvent'
+1398460251520	Rename type 'MakerEventsFixture'
+1398460326401	Rename type 'FlightCommandsController'
+1398460361228	Rename type 'FlightQueriesController'
+1398463508124	Copy compilation unit
+1398463523541	Copy compilation units
+1398463547528	Copy compilation units
+1398463558490	Rename type 'UpdateEvent'
+1398463688424	Rename field 'entityFound'
+1398464615732	Rename type 'Flight'
+1398464652857	Rename method 'handleFlights'
+1398465007841	Rename package 'com.czdurham.tasty.events.flight'
+1398465016886	Rename type 'QueryFlightDetailsEvent'
+1398465024987	Rename type 'QueryFlightsEvent'
+1398465738599	Rename type 'StatusDetails'
+1398465781346	Rename type 'Status'
+1398465986056	Delete element
+1398465993176	Delete element
+1398466619936	Delete element
+1398466727079	Delete element
+1398466787920	Delete element
+1398466793003	Delete element
+1398466892205	Rename type variable 'SD'
+1398537930577	Rename type 'ViewTastingIntegrationTest'
+1398539887103	Rename type 'TastingIntegrationTest'
+1398543026372	Rename method 'requestCreateTasting'
+1398549622746	Rename field 'service'
+1398549635981	Rename local variable 'details'

@@ -1,0 +1,5 @@
+package com.czdurham.tasty.rest.controllers;
+
+public class TastingTasterQueryController {
+
+}

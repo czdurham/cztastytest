@@ -1,0 +1,10 @@
+package com.czdurham.tasty.rest.domain.tasting;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Tasting implements Serializable {
+
+}

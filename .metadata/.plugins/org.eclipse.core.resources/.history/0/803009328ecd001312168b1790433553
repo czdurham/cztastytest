@@ -1,0 +1,65 @@
+package com.czdurham.tasty.controllers;
+
+import static com.czdurham.tasty.config.Constants.DEFAULT_PAGE;
+import static com.czdurham.tasty.config.Constants.DEFAULT_SIZE;
+import static com.czdurham.tasty.config.Constants.DEFAULT_STRING_PAGE;
+import static com.czdurham.tasty.config.Constants.DEFAULT_STRING_SIZE;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.ResourceSupport;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.czdurham.tasty.domain.tasting.TastingDetails;
+import com.czdurham.tasty.events.tasting.TastingDetailsEvent;
+import com.czdurham.tasty.events.tasting.TastingDetailsRequest;
+import com.czdurham.tasty.services.TastingService;
+
+@Controller
+@RequestMapping(value="/tastings", produces="application/json")
+public class TastingQueriesController {
+	private static final Class<TastingQueriesController> THIS_CLASS = TastingQueriesController.class;
+	private static final Logger LOG = LoggerFactory.getLogger(THIS_CLASS);
+
+	@Autowired
+	private TastingService tastingService;
+
+	@RequestMapping(method = RequestMethod.GET)
+	@ResponseBody
+	public ResourceSupport handleTastings(
+			@RequestParam(defaultValue=DEFAULT_STRING_PAGE) int page,
+			@RequestParam(defaultValue=DEFAULT_STRING_SIZE) int size) {
+		LOG.debug("Entered handleTastings");
+		ResourceSupport response = new ResourceSupport();
+
+		response.add(linkTo(methodOn(THIS_CLASS).handleTastings(DEFAULT_PAGE, DEFAULT_SIZE)).withSelfRel());
+
+		return response;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public ResponseEntity<TastingDetails> viewTasting(@PathVariable UUID id) {
+		TastingDetailsRequest request = new TastingDetailsRequest(id);
+		TastingDetailsEvent details = tastingService.requestTastingDetails(request);
+
+		if (!details.isFound()) {
+			return new ResponseEntity<TastingDetails>(HttpStatus.NOT_FOUND);
+		}
+
+		TastingDetails tastingDetails = details.getTastingDetails();
+
+		return new ResponseEntity<TastingDetails>(tastingDetails, HttpStatus.OK);
+	}
+}

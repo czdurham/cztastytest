@@ -1,0 +1,5 @@
+package com.czdurham.tasty.events.tasting;
+
+public class QueryFlightDetailsEvent {
+
+}

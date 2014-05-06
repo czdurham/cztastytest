@@ -1,0 +1,9 @@
+package com.czdurham.tasty.domain.tasting;
+
+public enum TastingStatus {
+	CREATED,
+	PREPARATION,
+	TASTING,
+	EVALUATING,
+	COMPLETE
+}

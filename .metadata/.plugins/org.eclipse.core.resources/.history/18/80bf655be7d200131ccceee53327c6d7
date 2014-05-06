@@ -1,0 +1,28 @@
+package com.czdurham.tasty.config;
+
+import java.util.HashMap;
+import java.util.UUID;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import com.czdurham.tasty.core.domain.tasting.Tasting;
+import com.czdurham.tasty.core.repository.TastingMemoryRepository;
+import com.czdurham.tasty.core.repository.TastingRepository;
+import com.czdurham.tasty.core.services.TastingEventHandler;
+import com.czdurham.tasty.core.services.TastingService;
+
+@Configuration
+//@ComponentScan(basePackages={"com.czdurham.tasty.core"})
+public class CoreConfig {
+	@Bean
+	public TastingService createTastingService(TastingRepository tastingRepository) {
+		return new TastingEventHandler(tastingRepository);
+	}
+
+	@Bean
+	public TastingRepository createTastingRepository() {
+		return new TastingMemoryRepository(new HashMap<UUID, Tasting>());
+	}
+}

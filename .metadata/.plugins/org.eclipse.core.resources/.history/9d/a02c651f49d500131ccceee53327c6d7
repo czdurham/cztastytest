@@ -1,0 +1,41 @@
+package com.czdurham.tasty.core.repository;
+
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import com.czdurham.tasty.core.domain.taster.Taster;
+
+public class AbstractGenericMemoryRepository<KeyType, EntityType> implements
+		GenericRepository<KeyType, EntityType> {
+	private Map<KeyType, EntityType> entities;
+
+	public AbstractGenericMemoryRepository(final Map<KeyType, EntityType> entities) {
+		this.entities = entities;
+	}
+	
+	@Override
+	public Taster save(EntityType taster) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(EntityType key) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Taster findById(KeyType key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EntityType> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

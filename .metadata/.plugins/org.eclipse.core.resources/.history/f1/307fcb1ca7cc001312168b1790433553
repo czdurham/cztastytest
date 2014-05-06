@@ -1,0 +1,10 @@
+package com.czdurham.tasty.controllers;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class rootController {
+	private static final Class<?> THIS_CLASS = rootController.class;
+//	private static final Logger LOG = LoggerFactory.getLogger(THIS_CLASS);
+
+}

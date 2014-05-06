@@ -1,0 +1,19 @@
+package com.czdurham.tasty.events;
+
+import com.czdurham.tasty.domain.StatusDetails;
+
+public class StatusEvent<SD extends StatusDetails<?>> extends ReadEvent {
+	private SD status;
+	
+	protected StatusEvent() {
+		setFound(false);
+	}
+	
+	public StatusEvent(SD status) {
+		this.status = status;
+	}
+	
+	public SD getStatus() {
+		return status;
+	}
+}

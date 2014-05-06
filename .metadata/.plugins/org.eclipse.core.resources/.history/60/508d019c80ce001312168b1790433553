@@ -1,0 +1,9 @@
+package com.czdurham.tasty.core.events.tasting;
+
+import com.czdurham.tasty.core.events.PaginatedReadEvent;
+
+public class TastingsDetailsEvent extends PaginatedReadEvent {
+	public TastingsDetailsEvent(int page, int size, int total) {
+		super(page, size, total);
+	}
+}

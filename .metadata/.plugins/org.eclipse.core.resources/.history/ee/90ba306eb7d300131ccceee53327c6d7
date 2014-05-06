@@ -1,0 +1,5 @@
+package com.czdurham.tasty.rest.domain.taster;
+
+public class Taster {
+
+}

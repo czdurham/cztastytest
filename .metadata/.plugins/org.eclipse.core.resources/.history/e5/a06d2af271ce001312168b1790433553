@@ -1,0 +1,17 @@
+package com.czdurham.tasty.events.tasting;
+
+import java.util.UUID;
+
+import com.czdurham.tasty.events.ReadRequest;
+
+public class TastingDetailsRequest extends ReadRequest {
+	private final UUID key;
+
+	public TastingDetailsRequest(UUID key) {
+		this.key = key;
+	}
+
+	public UUID getKey() {
+		return key;
+	}
+}

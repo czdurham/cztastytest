@@ -1,0 +1,5 @@
+package com.czdurham.tasty.config;
+
+public class SecurityConfig {
+
+}

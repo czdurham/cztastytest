@@ -1,0 +1,18 @@
+package com.czdurham.tasty.config;
+
+import org.springframework.context.annotation.Bean;
+
+import com.czdurham.tasty.core.repository.TastingRepository;
+import com.czdurham.tasty.core.services.TastingService;
+
+public class CoreConfig {
+	@Bean
+	public TastingService createService(TastingRepository tastingRepository) {
+		return new TastingEventHandler(tastingRepository);
+	}
+	
+	@Bean
+	public TastingRepository createTastingRepository() {
+		return new TastingMemoryRepository(new HashMap<UUID, Tasting>);
+	}
+}

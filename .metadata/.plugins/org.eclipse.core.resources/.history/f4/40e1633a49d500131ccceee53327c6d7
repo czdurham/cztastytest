@@ -1,0 +1,12 @@
+package com.czdurham.tasty.core.repository;
+
+import java.util.List;
+
+import com.czdurham.tasty.core.domain.taster.Taster;
+
+public interface GenericRepository<KeyType, EntityType> {
+	Taster save(EntityType entity);
+	void delete(EntityType key);
+	Taster findById(KeyType key);
+	List<EntityType> findAll();
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;order&apos; in &apos;com.czdurham.tasty.rest.controllers.TastingTests.thatTastingsCanBeAddedAndQueried()&apos; to &apos;tasting&apos;&#x0A;- Original project: &apos;tasty-rest&apos;&#x0A;- Original element: &apos;com.czdurham.tasty.rest.controllers.TastingTests.thatTastingsCanBeAddedAndQueried().order&apos;&#x0A;- Renamed element: &apos;order&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;order&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/test\/java&lt;com.czdurham.tasty.rest.controllers{TastingTests.java[TastingTests~thatTastingsCanBeAddedAndQueried@order!1274!1306!1282!1286!QTasting;!0!false" name="tasting" references="true" stamp="1399345618691" version="1.0"/>
+</session>

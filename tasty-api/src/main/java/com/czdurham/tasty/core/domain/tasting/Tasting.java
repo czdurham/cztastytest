@@ -1,0 +1,70 @@
+package com.czdurham.tasty.core.domain.tasting;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.BeanUtils;
+
+public class Tasting {
+	private final UUID key;
+	private String name;
+	private List<String> tasters;
+	private final List<TastingStatusDetails> statusHistory;
+
+	public Tasting() {
+		key = UUID.randomUUID();
+		statusHistory = new ArrayList<>();
+		addStatus(TastingStatus.CREATED);
+	}
+
+	public void addStatus(TastingStatus tastingStatus) {
+		statusHistory.add(new TastingStatusDetails(new Date(), tastingStatus));
+	}
+
+	public boolean canBeDeleted() {
+		return true;
+	}
+
+	public TastingStatusDetails getStatusDetails() {
+		return statusHistory.get(statusHistory.size() - 1);
+	}
+
+	public UUID getKey() {
+		return key;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<String> getTasters() {
+		return tasters;
+	}
+
+	public void setTasters(List<String> tasters) {
+		if(null == tasters) {
+			this.tasters = Collections.emptyList();
+		} else {
+			this.tasters = Collections.unmodifiableList(tasters);
+		}
+	}
+
+	public TastingDetails toDetails() {
+		TastingDetails details = new TastingDetails(getKey());
+		BeanUtils.copyProperties(this, details);
+		return details;
+	}
+
+	public static Tasting fromDetails(TastingDetails details) {
+		Tasting tasting = new Tasting();
+	    BeanUtils.copyProperties(details, tasting);
+		return tasting;
+	}
+}

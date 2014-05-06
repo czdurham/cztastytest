@@ -1,0 +1,13 @@
+package com.czdurham.tasty.domain.tasting;
+
+import java.util.Date;
+
+public class TastingStatusDetails {
+	private Date date;
+	private Status status;
+	
+	public TastingStatusDetails(Date date, Status status) {
+		this.date = date;
+		this.status = status;
+	}
+}

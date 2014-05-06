@@ -1,0 +1,5 @@
+package com.czdurham.tasty.core.domain;
+
+public class BaseEntity {
+
+}

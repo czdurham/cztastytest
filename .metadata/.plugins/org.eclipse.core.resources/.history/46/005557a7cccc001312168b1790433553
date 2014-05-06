@@ -1,0 +1,7 @@
+package com.czdurham.tasty.events.tasting;
+
+public class TastingEventsFixtures {
+	public static TastingStatusEvent tastingStatusNotFount(UUID key) {
+		
+	}
+}

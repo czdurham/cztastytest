@@ -1,0 +1,14 @@
+package com.czdurham.tasty.events.tasting;
+
+import java.util.UUID;
+
+import com.czdurham.tasty.events.ReadEvent;
+
+public class TastingStatusEvent extends ReadEvent {
+	private UUID key;
+	private TastingStatusDetails tastingStatus;
+	
+	public static TastingStatusEvent notFound(UUID key) {
+		
+	}
+}

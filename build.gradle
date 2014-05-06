@@ -1,0 +1,28 @@
+allprojects {
+    apply plugin: 'java'
+    group = 'com.czdurham.tasty'
+    version = '0.5'
+}
+
+subprojects {
+    apply plugin: 'eclipse'
+}
+
+project(':tasty-api') {
+    dependencies {
+    }
+}
+
+project(':tasty-core') {
+    dependencies {
+        compile project(':tasty-api')
+    }
+}
+
+project(':tasty-rest') {
+    dependencies {
+        compile project(':tasty-api')
+        compile project(':tasty-core')
+    }
+}
+

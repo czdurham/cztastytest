@@ -1,0 +1,6 @@
+package com.czdurham.tasty.core.repository;
+
+public class AbstractGenericMemoryRepository implements
+		GenericRepository<KeyType, ObjectType> {
+
+}

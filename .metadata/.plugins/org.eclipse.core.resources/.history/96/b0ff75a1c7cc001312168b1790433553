@@ -1,0 +1,4 @@
+package com.czdurham.tasty.events;
+
+public class UpdateRequest {
+}

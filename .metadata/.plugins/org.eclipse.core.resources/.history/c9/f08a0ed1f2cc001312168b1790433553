@@ -1,0 +1,9 @@
+package com.czdurham.tasty.domain.tasting;
+
+import java.util.Date;
+
+public class TastingDomainFixtures {
+	public static TastingStatusDetails createTastingStatusDetails(TastingStatus status) {
+		return new TastingStatusDetails(new Date(), status);
+	}
+}

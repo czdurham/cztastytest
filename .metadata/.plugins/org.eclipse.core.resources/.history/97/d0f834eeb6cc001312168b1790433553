@@ -1,0 +1,5 @@
+package com.czdurham.tasty.controllers;
+
+public class RootController {
+
+}

@@ -1,0 +1,9 @@
+package com.czdurham.tasty.events;
+
+public class ExistingEvent {
+	protected boolean found = true;
+
+	public boolean isFound() {
+		return found;
+	}
+}
